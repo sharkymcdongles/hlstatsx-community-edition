@@ -579,21 +579,21 @@ class Heatmap {
 
 class DB {
 	public static function connect () {
-		mysql_connect(DB_HOST, DB_USER, DB_PASS);
-		mysql_select_db(DB_NAME);
+		mysqli_connect(DB_HOST, DB_USER, DB_PASS);
+		mysqli_select_db(DB_NAME);
 		show::Event("DB", "Connected to " . DB_NAME . " as " . DB_USER . "@" . DB_HOST, 1);
 	}
 
 	public static function doQuery ($query) {
-		return mysql_query($query);
+		return mysqli_query($query);
 	}
 
 	public static function getAssoc ($result) {
-		return  mysql_fetch_assoc($result);
+		return  mysqli_fetch_assoc($result);
 	}
 
 	public static function numRows ($result) {
-		return mysql_num_rows($result);
+		return mysqli_num_rows($result);
 	}
 }
 
